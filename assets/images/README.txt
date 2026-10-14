@@ -1,0 +1,1 @@
+Replace this folder's contents with approved Creatiobs hero, course, mentor and project images. The current website uses CSS placeholders until those assets are supplied.

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Creatiobs student work portfolio.">
+  <title>Student Work | Creatiobs Creative Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header"><div class="container nav-wrap">
+<a class="brand" href="index.html"><img class="brand-logo" src="assets/images/creatiobs-logo.svg" alt="Creatiobs Creative Academy"></a>
+<button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+<nav class="main-nav" aria-label="Primary navigation"><a href="index.html" data-page="index">Home</a><a href="courses.html" data-page="courses">Courses</a><a href="placements.html" data-page="placements">Placements</a><a href="portfolio.html" data-page="portfolio">Student Work</a><a href="about.html" data-page="about">About Us</a><a href="contact.html" data-page="contact">Contact</a></nav>
+<div class="nav-actions"><a class="phone-link" href="tel:8979936548"><span class="icon icon-phone"></span><span>8979936548</span></a><a class="btn btn-small" href="contact.html#demo-form">BOOK A FREE DEMO <span>→</span></a></div>
+</div></header>
+<main>
+<section class="page-hero section-dark"><div class="hero-glow hero-glow-right"></div><div class="container narrow-center reveal"><span class="eyebrow-pill">STUDENT WORK</span><h1>Creative Work<br><span>That Speaks.</span></h1><p>A curated space for student projects across design, branding, video, motion and UI/UX. Replace placeholders with approved work before launch.</p></div></section>
+<section class="section section-light"><div class="container">
+<div class="filter-row" role="group" aria-label="Portfolio filters">
+<button class="filter-btn is-active" data-filter="all">All Work</button><button class="filter-btn" data-filter="graphic">Graphic Design</button><button class="filter-btn" data-filter="branding">Branding</button><button class="filter-btn" data-filter="video">Video Editing</button><button class="filter-btn" data-filter="motion">Motion Graphics</button><button class="filter-btn" data-filter="uiux">UI/UX</button><button class="filter-btn" data-filter="social">Social Media</button>
+</div>
+<div class="portfolio-grid" id="portfolioGrid">
+<article class="portfolio-item wide reveal" data-category="graphic"><button class="project-open" data-title="Graphic Design Project" data-category="Graphic Design"><span>ADD PROJECT IMAGE</span><small>GRAPHIC DESIGN</small></button></article>
+<article class="portfolio-item reveal" data-category="branding"><button class="project-open" data-title="Brand Identity Project" data-category="Branding"><span>ADD PROJECT IMAGE</span><small>BRANDING</small></button></article>
+<article class="portfolio-item reveal" data-category="video"><button class="project-open" data-title="Video Editing Project" data-category="Video Editing"><span>ADD PROJECT IMAGE</span><small>VIDEO EDITING</small></button></article>
+<article class="portfolio-item tall reveal" data-category="motion"><button class="project-open" data-title="Motion Graphics Project" data-category="Motion Graphics"><span>ADD PROJECT IMAGE</span><small>MOTION GRAPHICS</small></button></article>
+<article class="portfolio-item reveal" data-category="uiux"><button class="project-open" data-title="UI/UX Project" data-category="UI/UX"><span>ADD PROJECT IMAGE</span><small>UI/UX</small></button></article>
+<article class="portfolio-item reveal" data-category="social"><button class="project-open" data-title="Social Media Project" data-category="Social Media"><span>ADD PROJECT IMAGE</span><small>SOCIAL MEDIA</small></button></article>
+<article class="portfolio-item wide reveal" data-category="branding"><button class="project-open" data-title="Branding Project" data-category="Branding"><span>ADD PROJECT IMAGE</span><small>BRANDING</small></button></article>
+<article class="portfolio-item reveal" data-category="graphic"><button class="project-open" data-title="Design Project" data-category="Graphic Design"><span>ADD PROJECT IMAGE</span><small>GRAPHIC DESIGN</small></button></article>
+</div></div></section>
+<section class="demo-section"><div class="container demo-card reveal"><div><span class="section-kicker">MAKE YOUR OWN</span><h2>Build a Portfolio<br><span>Worth Showing.</span></h2><p>Explore the programs that turn creative practice into portfolio-ready work.</p></div><a class="btn btn-primary" href="courses.html">EXPLORE COURSES <span>→</span></a></div></section>
+</main>
+<div class="modal" id="projectModal" aria-hidden="true"><div class="modal-backdrop" data-modal-close></div><div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" type="button" aria-label="Close project preview" data-modal-close>×</button><div class="modal-placeholder">ADD PROJECT IMAGE</div><span class="section-kicker" id="modalCategory">CATEGORY</span><h2 id="modalTitle">Project</h2><p>Replace this placeholder with the approved student project image and project description.</p></div></div>
+<footer class="site-footer"><div class="container footer-grid"><div><a class="brand" href="index.html"><img class="brand-logo" src="assets/images/creatiobs-logo.svg" alt="Creatiobs Creative Academy"></a><p>Practical creative education for students who want to learn, create and grow.</p></div><div><h3>Quick Links</h3><a href="index.html">Home</a><a href="courses.html">Courses</a><a href="placements.html">Placements</a><a href="portfolio.html">Student Work</a><a href="about.html">About Us</a><a href="contact.html">Contact</a></div><div><h3>Contact</h3><a href="tel:8979936548">8979936548</a><a class="footer-demo" href="contact.html#demo-form">BOOK A FREE DEMO →</a></div></div><div class="container footer-bottom"><span>© <span id="year"></span> Creatiobs Creative Academy</span><span>Designed with a creative-first approach.</span></div></footer>
+<script src="js/script.js"></script>
+</body></html>
