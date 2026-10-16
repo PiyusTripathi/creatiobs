@@ -24,8 +24,15 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Active page indicator
-  const current = location.pathname.split("/").pop() || "index.html";
-  const currentPage = current.replace(".html", "") || "index";
+  const pathParts = location.pathname.split("/");
+  const current = pathParts.pop() || "index.html";
+  const coursePages = [
+    "graphic-design-course-dehradun.html",
+    "video-editing-course-dehradun.html",
+    "ui-ux-design-course-dehradun.html",
+    "diploma-graphic-design-video-editing.html"
+  ];
+  const currentPage = pathParts.includes("blog") ? "blog" : (coursePages.includes(current) ? "courses" : (current.replace(".html", "") || "index"));
   document.querySelectorAll(".main-nav a[data-page]").forEach(link => {
     if (link.dataset.page === currentPage) link.classList.add("active");
   });
@@ -146,6 +153,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Demo form: frontend-only validation and confirmation.
   const form = document.getElementById("demoForm");
   const status = document.getElementById("formStatus");
+  const trackEvent = (eventName, params = {}) => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: eventName, ...params });
+  };
   form?.addEventListener("submit", e => {
     e.preventDefault();
     status.className = "form-status";
@@ -172,9 +183,60 @@ document.addEventListener("DOMContentLoaded", () => {
       status.classList.add("error");
       return;
     }
+    trackEvent("admission_form_submit", { course });
     status.textContent = "Thanks — your enquiry has been validated locally. Connect a backend or form service to receive submissions.";
     status.classList.add("success");
     form.reset();
+  });
+
+  document.querySelectorAll(".track-click").forEach(link => {
+    link.addEventListener("click", () => {
+      trackEvent(link.dataset.track || "cta_click", { label: link.textContent.trim(), href: link.href });
+    });
+  });
+
+  const blogSearch = document.getElementById("blogSearch");
+  const blogCards = [...document.querySelectorAll(".blog-card")];
+  const blogCategoryButtons = document.querySelectorAll("[data-blog-category]");
+  let activeBlogCategory = "all";
+  const filterBlog = () => {
+    const query = (blogSearch?.value || "").trim().toLowerCase();
+    blogCards.forEach(card => {
+      const categoryMatch = activeBlogCategory === "all" || card.dataset.category === activeBlogCategory;
+      const textMatch = !query || `${card.textContent} ${card.dataset.search || ""}`.toLowerCase().includes(query);
+      card.classList.toggle("is-hidden", !categoryMatch || !textMatch);
+    });
+  };
+  blogSearch?.addEventListener("input", filterBlog);
+  blogCategoryButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      activeBlogCategory = button.dataset.blogCategory;
+      blogCategoryButtons.forEach(b => b.classList.remove("is-active"));
+      button.classList.add("is-active");
+      filterBlog();
+    });
+  });
+
+  const adminForm = document.getElementById("blogAdminForm");
+  const adminOutput = document.getElementById("blogAdminOutput");
+  adminForm?.addEventListener("submit", e => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(adminForm).entries());
+    const today = new Date().toISOString().slice(0, 10);
+    const article = {
+      title: data.title.trim(),
+      metaDescription: data.description.trim(),
+      h1: data.h1.trim(),
+      slug: data.slug.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""),
+      category: data.category.trim(),
+      author: data.author.trim(),
+      featuredImageAlt: data.alt.trim(),
+      publishedDate: today,
+      updatedDate: today,
+      body: data.body.trim()
+    };
+    localStorage.setItem(`creatiobs_article_${article.slug}`, JSON.stringify(article, null, 2));
+    adminOutput.textContent = JSON.stringify(article, null, 2);
   });
 
   // Animated mentor counters.

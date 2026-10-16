@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Blog Admin Helper | Creatiobs</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<main class="admin-page section-light">
+  <section class="container admin-panel">
+    <span class="section-kicker">CREATIOBS JOURNAL ADMIN</span>
+    <h1>Article Publishing Helper</h1>
+    <p>This static admin helper lets the academy prepare article metadata and content without touching code first. For live publishing on GitHub Pages, paste the exported content into a new blog HTML file and add it to `blog.html` and `sitemap.xml`, or connect a CMS such as Decap/Netlify CMS to automate commits.</p>
+    <form class="admin-form" id="blogAdminForm">
+      <label>SEO Title<input name="title" required placeholder="Article SEO title"></label>
+      <label>Meta Description<textarea name="description" rows="3" required placeholder="155-160 character search description"></textarea></label>
+      <label>H1 Heading<input name="h1" required placeholder="Article H1"></label>
+      <label>Slug<input name="slug" required placeholder="seo-friendly-article-url"></label>
+      <label>Category<input name="category" required placeholder="Graphic Design"></label>
+      <label>Author<input name="author" required placeholder="Creatiobs Team"></label>
+      <label>Featured Image Alt Text<input name="alt" required placeholder="Describe the actual image"></label>
+      <label>Article Body<textarea name="body" rows="9" required placeholder="Write article sections here"></textarea></label>
+      <button class="btn btn-primary" type="submit">GENERATE ARTICLE JSON <span>-></span></button>
+    </form>
+    <pre class="admin-output" id="blogAdminOutput" aria-live="polite"></pre>
+  </section>
+</main>
+<script src="../js/script.js"></script>
+</body>
+</html>
