@@ -4,6 +4,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".main-nav");
 
+  // Studio discovery form opens a ready-to-send email (the static site has no form backend).
+  const studioForm = document.getElementById("studioInquiryForm");
+  studioForm?.addEventListener("submit", event => {
+    event.preventDefault();
+    const values = new FormData(studioForm);
+    const subject = `Studio enquiry: ${values.get("service")}`;
+    const body = [
+      `Name: ${values.get("name")}`,
+      `Business: ${values.get("company")}`,
+      `Phone / WhatsApp: ${values.get("phone")}`,
+      `Service: ${values.get("service")}`,
+      `Project details: ${values.get("message") || "Not provided"}`
+    ].join("\n");
+    const mailto = `mailto:hello@cretiobsstudio.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+    const status = document.getElementById("studioFormStatus");
+    if (status) status.textContent = "Your email app should open with the enquiry details. Send the email there to complete your enquiry.";
+  });
+
   // Sticky header / mobile navigation
   const updateHeader = () => header?.classList.toggle("scrolled", window.scrollY > 30);
   updateHeader();
