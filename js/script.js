@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".site-header");
   const menuToggle = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".main-nav");
+  const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
 
   // Studio discovery form opens a ready-to-send email (the static site has no form backend).
   const studioForm = document.getElementById("studioInquiryForm");
@@ -25,8 +26,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Sticky header / mobile navigation
   const updateHeader = () => header?.classList.toggle("scrolled", window.scrollY > 30);
+  let headerUpdateQueued = false;
   updateHeader();
-  window.addEventListener("scroll", updateHeader, { passive: true });
+  window.addEventListener("scroll", () => {
+    if (headerUpdateQueued) return;
+    headerUpdateQueued = true;
+    requestAnimationFrame(() => {
+      updateHeader();
+      headerUpdateQueued = false;
+    });
+  }, { passive: true });
 
   menuToggle?.addEventListener("click", () => {
     const open = nav.classList.toggle("is-open");
@@ -84,13 +93,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const next = carousel.querySelector(".carousel-next");
     let index = 0;
     let timer;
+    let carouselInView = true;
 
     const show = nextIndex => {
       index = (nextIndex + slides.length) % slides.length;
       slides.forEach((slide, i) => slide.classList.toggle("is-active", i === index));
       dots.forEach((dot, i) => dot.classList.toggle("is-active", i === index));
     };
-    const start = () => { clearInterval(timer); timer = setInterval(() => show(index + 1), 5500); };
+    const start = () => {
+      clearInterval(timer);
+      if (prefersReducedMotion || !carouselInView) return;
+      timer = setInterval(() => show(index + 1), 5500);
+    };
     const stop = () => clearInterval(timer);
 
     prev?.addEventListener("click", () => { show(index - 1); start(); });
@@ -115,18 +129,32 @@ document.addEventListener("DOMContentLoaded", () => {
       const delta = e.changedTouches[0].screenX - startX;
       if (Math.abs(delta) > 45) { show(index + (delta < 0 ? 1 : -1)); start(); }
     }, { passive: true });
-    start();
+    if ("IntersectionObserver" in window) {
+      const carouselObserver = new IntersectionObserver(entries => {
+        carouselInView = entries[0].isIntersecting;
+        if (carouselInView) start(); else stop();
+      });
+      carouselObserver.observe(carousel);
+    } else {
+      start();
+    }
   }
 
   // Infinite-feel brand marquee: duplicate cards and animate the track vertically.
   const logoTrack = document.querySelector(".logo-track");
   if (logoTrack && !logoTrack.dataset.cloned) {
-    logoTrack.innerHTML += logoTrack.innerHTML;
     logoTrack.dataset.cloned = "true";
-    logoTrack.style.animation = "marquee 28s linear infinite";
     const marquee = document.querySelector("[data-logo-marquee]");
-    marquee?.addEventListener("mouseenter", () => logoTrack.style.animationPlayState = "paused");
-    marquee?.addEventListener("mouseleave", () => logoTrack.style.animationPlayState = "running");
+    if (prefersReducedMotion) {
+      marquee?.style.setProperty("height", "auto");
+      marquee?.style.setProperty("max-height", "none");
+      marquee?.style.setProperty("overflow", "visible");
+    } else {
+      logoTrack.innerHTML += logoTrack.innerHTML;
+      logoTrack.style.animation = "marquee 28s linear infinite";
+      marquee?.addEventListener("mouseenter", () => logoTrack.style.animationPlayState = "paused");
+      marquee?.addEventListener("mouseleave", () => logoTrack.style.animationPlayState = "running");
+    }
   }
 
   // Portfolio filtering
@@ -266,6 +294,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!entry.isIntersecting) return;
         const el = entry.target;
         const target = Number(el.dataset.count);
+        if (prefersReducedMotion) {
+          el.textContent = `${target}+`;
+          counterObserver.unobserve(el);
+          return;
+        }
         const duration = 1100;
         const start = performance.now();
         const tick = now => {
