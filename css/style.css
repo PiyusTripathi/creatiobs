@@ -389,6 +389,9 @@ linear-gradient(135deg,#202020 0%,#0d0d0d 58%,#29070b 100%)}
 .studio-academy-link{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;padding:9px 13px;border:1px solid rgba(255,30,45,.45);border-radius:999px;background:rgba(255,30,45,.08);color:#fff;font-size:.67rem;font-weight:900;letter-spacing:.08em;transition:background .2s ease,border-color .2s ease,transform .2s ease}
 .studio-academy-link span{color:var(--studio-orange);font-size:1rem}
 .studio-academy-link:hover{transform:translateY(-2px);border-color:var(--studio-orange);background:rgba(255,30,45,.17)}
+.studio-page .studio-services-nav-link{display:inline-flex;align-items:center;white-space:nowrap;padding:9px 13px;border:1px solid rgba(255,30,45,.45);border-radius:999px;background:rgba(255,30,45,.08);color:#fff;font-weight:800;transition:background .2s ease,border-color .2s ease,transform .2s ease}
+.studio-page .studio-services-nav-link:hover,.studio-page .studio-services-nav-link[aria-current="page"]{transform:translateY(-2px);border-color:var(--studio-orange);background:rgba(255,30,45,.17);color:#fff}
+.studio-page .studio-services-nav-link::after{display:none}
 .studio-page .menu-toggle span{background:#fff}
 .studio-page .nav-actions{margin-left:8px}
 .studio-button{background:var(--studio-orange);color:#fff;box-shadow:0 12px 32px rgba(255,30,45,.2)}
