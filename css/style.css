@@ -600,13 +600,12 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}
 .studio-footer-copy{color:#74796f}
 .studio-clients{background:#f8f6ef;border-top:1px solid rgba(32,37,31,.09);border-bottom:1px solid rgba(32,37,31,.09)}
 .studio-client-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.studio-client-card{min-width:0;min-height:174px;margin:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:16px 10px;border:1px solid rgba(32,37,31,.1);border-radius:8px;background:#fffdf7;text-align:center}
-.studio-client-image{width:116px;height:116px;flex:none;border:1px solid rgba(32,37,31,.12);border-radius:50%;background-image:url("../assets/images/studio-collaborators.png");background-repeat:no-repeat;background-size:998px 499px;background-color:#e5e1d7}
+.studio-client-card{min-width:0;min-height:196px;margin:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:16px 10px;border:1px solid rgba(32,37,31,.1);border-radius:8px;background:#fffdf7;text-align:center}
+.studio-client-image{display:block;width:138px;height:138px;flex:none;border:0;border-radius:50%;object-fit:contain;background:#fff}
 .studio-client-card figcaption{color:#41473f;font-size:.77rem;font-weight:700;line-height:1.3}
-.client-taj{background-position:-4px -120px}.client-doctor{background-position:-209px -117px}.client-kamini{background-position:-391px -122px}.client-uttarakhand{background-position:-595px -119px}.client-vrindavan{background-position:-794px -119px}.client-imperfct{background-position:-25px -402px}.client-creator{background-position:-190px -400px}.client-brightsoil{background-position:-353px -400px}.client-professional{background-position:-511px -400px}.client-uptourism{background-position:-684px -398px}.client-infra{background-position:-842px -400px}
 @media(max-width:850px){.studio-page .site-header.scrolled{background:rgba(242,239,230,.98)}.studio-page .menu-toggle span{background:var(--studio-ink)}.studio-hero{min-height:auto}}
 @media(max-width:850px){.studio-client-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:560px){.studio-service-card{min-height:0}.studio-service-card p{min-height:0}.studio-capability-card{min-height:0}.studio-client-image{width:100px;height:100px;background-size:860px 430px}.client-taj{background-position:-3px -103px}.client-doctor{background-position:-180px -101px}.client-kamini{background-position:-337px -105px}.client-uttarakhand{background-position:-513px -102px}.client-vrindavan{background-position:-684px -102px}.client-imperfct{background-position:-22px -347px}.client-creator{background-position:-164px -345px}.client-brightsoil{background-position:-304px -345px}.client-professional{background-position:-441px -345px}.client-uptourism{background-position:-591px -343px}.client-infra{background-position:-727px -345px}.studio-client-card{min-height:150px;padding:12px 7px}.studio-client-card figcaption{font-size:.7rem}}
+@media(max-width:560px){.studio-service-card{min-height:0}.studio-service-card p{min-height:0}.studio-capability-card{min-height:0}.studio-client-image{width:112px;height:112px}.studio-client-card{min-height:166px;padding:12px 7px}.studio-client-card figcaption{font-size:.7rem}}
 @media(max-width:560px){
   .container{width:min(100% - 28px,var(--container))}
   .site-footer{padding-bottom:100px}
@@ -627,9 +626,9 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}
   .studio-stats>div{padding:14px}
 }
 
-.studio-client-services-button{min-width:176px;min-height:60px;padding:0 28px;gap:18px;font-size:.95rem;letter-spacing:.04em}
-.studio-client-services-button span{font-size:1.35rem}
-@media(max-width:560px){.studio-client-services-button{width:100%;max-width:280px;min-height:56px;margin-top:22px;font-size:.9rem}}
+.studio-client-services-button{min-width:210px;min-height:72px;padding:0 32px;gap:20px;font-size:1.08rem;letter-spacing:.05em}
+.studio-client-services-button span{font-size:1.55rem}
+@media(max-width:560px){.studio-client-services-button{width:100%;max-width:300px;min-height:64px;margin-top:22px;font-size:1rem}}
 @media(max-width:560px){.studio-brand{font-size:.76rem;letter-spacing:.06em}.studio-academy-link{font-size:.53rem;padding:7px 8px;gap:4px}}
 @media(max-width:850px){
   .has-studio-cta .nav-wrap{gap:10px}
@@ -689,3 +688,31 @@ html,body{width:100%;max-width:100%;overflow-x:hidden}
 .studio-detail-cta{padding:65px 0;background:#f3f3f3;color:#111}.studio-detail-cta-inner{display:flex;align-items:center;justify-content:space-between;gap:30px}.studio-detail-cta h2{margin:13px 0 0;font:800 clamp(2.8rem,5vw,4.6rem)/.98 "Manrope",sans-serif;letter-spacing:-.06em}.studio-detail-cta .studio-button{white-space:nowrap}
 @media(max-width:850px){.studio-detail-service,.studio-detail-service:nth-of-type(even),.studio-project-feature{grid-template-columns:1fr;gap:24px;padding:32px 0}.studio-detail-service:nth-of-type(even){padding:24px}.studio-detail-service:nth-of-type(even) .studio-detail-copy,.studio-detail-service:nth-of-type(even) .studio-detail-visual,.studio-project-reverse .studio-detail-visual,.studio-project-reverse>div{grid-column:1;grid-row:auto}.studio-detail-hero{padding-top:130px}.studio-service-index{top:68px}}
 @media(max-width:560px){.studio-detail-hero{padding:118px 0 32px}.studio-detail-hero h1{font-size:clamp(3.1rem,16vw,5rem)}.studio-detail-hero p{font-size:.95rem}.studio-detail-proof{gap:11px 18px;margin-top:46px}.studio-service-index-inner{gap:18px}.studio-detail-services,.studio-detail-projects{padding:64px 0 48px}.studio-detail-section-heading h2{font-size:2.7rem}.studio-detail-list-two,.studio-outcomes .studio-detail-list{grid-template-columns:1fr}.studio-detail-platforms span{font-size:.67rem}.studio-detail-visual{padding:5px}.studio-detail-cta{padding:50px 0}.studio-detail-cta-inner{align-items:flex-start;flex-direction:column}.studio-detail-cta .studio-button{width:100%}}
+
+/* Studio polish: clearer type, softer surfaces and a centered clients CTA */
+.studio-page{font-optical-sizing:auto;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.studio-page h1,.studio-page h2,.studio-page h3{text-wrap:balance}
+.studio-page p{line-height:1.75}
+.studio-page a:focus-visible,.studio-page button:focus-visible{outline:3px solid var(--studio-orange);outline-offset:4px}
+.studio-page .studio-section{padding-block:clamp(76px,8vw,112px)}
+.studio-page .studio-section-label{font-size:.72rem;letter-spacing:.16em}
+.studio-page .studio-heading-row h2,.studio-page .studio-about-copy h2,.studio-page .studio-edge h2{line-height:.99;letter-spacing:-.065em}
+.studio-page .studio-heading-row p,.studio-page .studio-about-copy p{font-size:1rem;line-height:1.75}
+.studio-page .studio-service-card,.studio-page .studio-capability-card,.studio-page .studio-work-card,.studio-page .studio-promise{border-radius:14px;transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease}
+.studio-page .studio-service-card:hover,.studio-page .studio-capability-card:hover,.studio-page .studio-work-card:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(0,0,0,.16)}
+.studio-page .studio-button{border-radius:999px;font-weight:800;transition:transform .2s ease,background .2s ease,box-shadow .2s ease}
+.studio-page .studio-button:hover{transform:translateY(-2px)}
+.studio-page .studio-client-grid{gap:14px}
+.studio-page .studio-client-card{min-height:202px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.045);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.studio-page .studio-client-card:hover{transform:translateY(-3px);border-color:rgba(243,34,53,.35);box-shadow:0 14px 30px rgba(0,0,0,.09)}
+.studio-page .studio-client-card figcaption{font-size:.82rem}
+.studio-clients-cta{display:flex;justify-content:center;margin-top:22px}
+.studio-page .studio-client-services-button{min-width:270px;min-height:68px;margin:0;padding-inline:38px;font-size:1.02rem;letter-spacing:.08em}
+.studio-page .studio-client-services-button span{font-size:1.5rem}
+.studio-page .studio-detail-hero h1{letter-spacing:-.075em}
+.studio-page .studio-detail-section-heading h2{letter-spacing:-.065em}
+.studio-page .studio-detail-visual{overflow:hidden;border-radius:14px;box-shadow:0 14px 36px rgba(0,0,0,.12)}
+.studio-page .studio-detail-visual img{transition:transform .45s ease}
+.studio-page .studio-detail-visual:hover img{transform:scale(1.025)}
+@media(max-width:560px){.studio-clients-cta{margin-top:18px}.studio-page .studio-client-services-button{width:min(100%,320px);min-height:62px}.studio-page .studio-client-card{min-height:166px}.studio-page .studio-client-card figcaption{font-size:.75rem}}
+@media(prefers-reduced-motion:reduce){.studio-page *, .studio-page *::before,.studio-page *::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}
